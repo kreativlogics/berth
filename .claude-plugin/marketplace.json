@@ -1,0 +1,15 @@
+{
+  "name": "berth",
+  "owner": {
+    "name": "KreativLogics",
+    "url": "https://github.com/kreativlogics"
+  },
+  "description": "berth: deploy claims for Claude Code on github/branch-deploy lock branches.",
+  "plugins": [
+    {
+      "name": "berth",
+      "source": "./plugins/berth",
+      "description": "Deploy claims for Claude Code, stored as github/branch-deploy lock branches on your git remote."
+    }
+  ]
+}
