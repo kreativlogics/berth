@@ -1,0 +1,58 @@
+{
+  "name": "berth",
+  "version": "0.1.0",
+  "description": "Deploy claims for Claude Code: refuses a deploy to a guarded environment unless you hold its claim. Claims are github/branch-deploy lock branches on your git remote, with an end time, an extend command and a reminder before you leave. Stdlib Python, no dependencies.",
+  "author": {
+    "name": "Salman Ahmad",
+    "url": "https://github.com/kreativlogics"
+  },
+  "homepage": "https://github.com/kreativlogics/berth",
+  "repository": "https://github.com/kreativlogics/berth",
+  "license": "MIT",
+  "keywords": [
+    "deploy",
+    "environments",
+    "locks",
+    "branch-deploy",
+    "hooks",
+    "guardrails"
+  ],
+  "userConfig": {
+    "preset": {
+      "type": "string",
+      "title": "Preset",
+      "description": "standard asks you when berth cannot check a deploy and reminds you about held claims; strict denies in that case and asks Claude to release or justify a claim when it stops. Project files can only make this stricter.",
+      "options": [
+        "standard",
+        "strict"
+      ],
+      "default": "standard"
+    },
+    "fail_mode": {
+      "type": "string",
+      "title": "If berth cannot check a deploy",
+      "description": "When the remote cannot be reached or a config file is broken: ask you, deny the deploy, or allow it.",
+      "options": [
+        "ask",
+        "deny",
+        "allow"
+      ],
+      "default": "ask"
+    },
+    "identity": {
+      "type": "string",
+      "title": "Your name in locks (optional)",
+      "description": "Written as created_by in each lock. Use your GitHub login if your team also uses branch-deploy. Empty: your git user.name.",
+      "default": ""
+    },
+    "max_claim_hours": {
+      "type": "number",
+      "title": "Longest claim, in hours",
+      "description": "A claim or an extension runs at most this long from now (0.25 to 24).",
+      "default": 2,
+      "min": 0.25,
+      "max": 24
+    }
+  },
+  "icon": ".claude-plugin/icon.png"
+}
